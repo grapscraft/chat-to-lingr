@@ -3,6 +3,7 @@ package com.grapswiz.bukkit.chattolingr;
 import java.io.IOException;
 import java.util.concurrent.Future;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -17,6 +18,7 @@ import com.ning.http.client.Response;
 
 public final class Plugin extends JavaPlugin implements  Listener {
 	public static String sessionId;
+	public static final String WELCOME_MESSAGE = "ゲーム外にチャットもあるのでよかったら参加してね http://lingr.com/room/gracraft";
     public static final String SESSION_CREATE_URL = "http://lingr.com/api/session/create";
     public static final String ROOM_SAY_URL = "http://lingr.com/api/room/say";
 
@@ -50,6 +52,8 @@ public final class Plugin extends JavaPlugin implements  Listener {
 
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
+    	Bukkit.broadcastMessage(WELCOME_MESSAGE);
+    	
         try {
             postMessage(sessionId, event.getPlayer().getDisplayName() + " がログインしました");
         } catch (Exception e) {
