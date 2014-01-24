@@ -1,0 +1,3 @@
+name: ChatToLingrPlugin
+version: 1.0-SNAPSHPOT
+main: com.grapswiz.bukkit.chattolingr.Plugin
