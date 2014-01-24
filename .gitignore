@@ -1,0 +1,8 @@
+# setting files
+.classpath
+.project
+.idea/
+chat-to-lingr.iml
+
+# generated
+target/
